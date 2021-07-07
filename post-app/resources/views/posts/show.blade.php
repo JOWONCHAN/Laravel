@@ -43,8 +43,7 @@
         <div class="mt-3">
             <a href="{{ route('posts.index', ['page'=>$page]) }}">목록</a>
         </div>
-        <form action="/posts/store" method="POST">
-            
+        
             <div class="form-group">
                 <label for="title" class="form-label">title</label>
                 <input type="text" readonly class="form-control" id="title" name="title" value="{{ $post->title }}">
@@ -80,12 +79,21 @@
                 <input type="text" readonly class="from-control" value="{{ $post->user_id }}">
             </div>
 
-            <div class="flex">
-                <a class="btn btn-warning" href={{ route('post.edit', ['post'=>$post->id]) }}">수정</a>
-                <button class="btn btn-danger" onclick="location.href={{ route('post.delete', ['id'=>$post->id]) }}">삭제</button>
-            </div>
-
-        </form>
+            @auth
+                {{-- @if(auth()->user()->id == $post->user_id) --}}
+                @can('update', $post)
+                    <div class="flex">
+                        <a class="btn btn-warning" href="{{ route('post.edit', ['post'=>$post->id, 'page'=>$page]) }}">수정</a>
+                        <form action="{{ route('post.delete', ['id'=>$post->id, 'page'=>$page]) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">삭제</button>
+                        </form>
+                        
+                    </div>
+                {{-- @endif --}}
+                @endcan
+            @endauth
     </div>
     
 </body>

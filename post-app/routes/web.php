@@ -31,7 +31,7 @@ Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store
 
 Route::get('/posts/index', [PostController::class, 'index'])->name('posts.index');
 
-Route::get('/posts/show{id}', [PostController::class, 'show'])->name('post.show');
+Route::get('/posts/show/{id}', [PostController::class, 'show'])->name('post.show');
 
 Route::get('/posts/{post}', [PostController::class, 'edit'])->name('post.edit');
 

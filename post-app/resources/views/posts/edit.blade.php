@@ -18,7 +18,7 @@
 
     <div class="container">
 
-        <form action="{{ route('post.update', ['id'=>$post->id]) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('post.update', ['id'=>$post->id, 'page'=>$page]) }}" method="post" enctype="multipart/form-data">
             @csrf
             {{-- method spoofing --}}
             {{-- <input type="hidden" name="_method" value="put"> --}}
