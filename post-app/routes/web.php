@@ -29,6 +29,8 @@ Route::get('/posts/create', [PostController::class, 'create'])/*->middleware(['a
 
 Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store')/*->middleware(['auth'])*/;
 
+Route::get('/posts/mypost', [PostController::class, 'myposts'])->name('posts.mine');
+
 Route::get('/posts/index', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('/posts/show/{id}', [PostController::class, 'show'])->name('post.show');

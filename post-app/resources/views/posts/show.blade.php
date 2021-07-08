@@ -52,7 +52,7 @@
 
             <div class="form-group">
                 <label for="content" class="form-label">Content</label>
-                <textarea class="form-control" id="content" name="content" readonly>{{ $post->content }}</textarea>
+                <div id="content" name="content" readonly>{!! $post->content !!}</div>
 
             </div>
 
@@ -76,7 +76,7 @@
 
             <div class="form-group mt-2">
                 <label>작성자</label>
-                <input type="text" readonly class="from-control" value="{{ $post->user_id }}">
+                <input type="text" readonly class="from-control" value="{{ $post->user->name }}">
             </div>
 
             @auth
