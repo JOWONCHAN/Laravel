@@ -32,7 +32,10 @@
                 {{-- <div>
                     content: {{ $post->content }}
                 </div> --}}
-                <span>written on {{ $post->created_at->diffForHumans() }}</span>
+                <span>written on {{ $post->created_at->diffForHumans() }}
+                    {{ $post->viewers->count() }}
+                    {{  $post->viewers->count() > 0 ? Str::plural('view', $post->viewers->count()) : 'view'}} {{-- plural()은 첫번째인자에 지정한 이름으로 단위를 잡아주고 복수형이면 자동으로 s를 붙여준다  --}}
+                </span>
                 <hr>
             </li>
             @endforeach

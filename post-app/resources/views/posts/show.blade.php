@@ -42,6 +42,7 @@
     <div class="container">
         <div class="mt-3">
             <a href="{{ route('posts.index', ['page'=>$page]) }}">목록</a>
+            {{-- <a href="{{ url()->previous() }}">목록</a> --}}
         </div>
         
             <div class="form-group">

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterTableSetNullPostsTable extends Migration
+class AddCountToPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,8 @@ class AlterTableSetNullPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->foreignld('user_id')
-                ->constrained()
-                ->onDelete('set null')->change();
+
+            $table->unsignedInteger('count')->default(0);
         });
     }
 
@@ -28,9 +27,7 @@ class AlterTableSetNullPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->foreignld('user_id')
-                ->constrained()
-                ->onDelete('set null')->change();
+            $table->dropColumn('count');
         });
     }
 }
