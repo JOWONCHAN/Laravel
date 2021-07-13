@@ -52,5 +52,13 @@
                 </x-button>
             </div>
         </form>
+        <div class="mt-5">
+            <button class="bg-gray-300 ml-7"><a href="{{ route('github.login') }}">Gitbub Login </a></button>
+        
+            <button class="bg-blue-300 ml-7" href="">Google Login</button>
+        
+            <button class="bg-yellow-300 ml-7" href="">Kakao Login</button>
+        </div>
     </x-auth-card>
+    
 </x-guest-layout>
