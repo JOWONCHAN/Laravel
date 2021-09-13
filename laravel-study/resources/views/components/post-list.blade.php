@@ -7,33 +7,23 @@
             </p>
         </div>
     @endforeach --}}
-    <table class="table">
+    <table class="table table-dark table-striped">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">제목</th>
+            <th scope="col">작성자</th>
+            <th scope="col">작성일</th>
           </tr>
         </thead>
         <tbody>
+          @foreach ($posts as $post)
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>{{ $post->title }}</td>
+            <td>{{ $post->writer->name }}</td>
+            <td>{{ $post->created_at->diffForHumans() }}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
+      {{ $posts->links() }}
 </div>
